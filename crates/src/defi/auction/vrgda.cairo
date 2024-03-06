@@ -19,6 +19,27 @@ trait VRGDATargetTimeTrait<T> {
     fn get_target_sale_time(self: @T, sold: Fixed) -> Fixed;
 }
 
+struct VRGDA<T> {
+    target_price: Fixed,
+    decay_constant: Fixed,
+    vars: T,
+}
+
+impl GenricVRGDAImpl<T, +VRGDATargetTimeTrait<T>> of VRGDATrait<VRGDA> {
+    fn get_vrgda_price(self: @VRGDA<T>, time_since_start: Fixed, sold: Fixed) -> Fixed {
+        *self.target_price
+            * (FixedTrait::ONE() - *self.decay_constant)
+                .pow(time_since_start - self.get_target_sale_time(sold + FixedTrait::ONE()))
+    }
+
+    fn get_reverse_vrgda_price(self: @VRGDA<T>, time_since_start: Fixed, sold: Fixed) -> Fixed {
+        *self.target_price
+            * (FixedTrait::ONE() - *self.decay_constant)
+                .pow(self.get_target_sale_time(sold + FixedTrait::ONE()) - time_since_start)
+    }
+}
+
+
 impl TVRGDATrait<T, +VRGDAVarsTrait<T>, +VRGDATargetTimeTrait<T>> of VRGDATrait<T> {
     /// Calculates the VRGDA price at a specific time since the auction started.
     ///
