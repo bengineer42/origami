@@ -10,6 +10,6 @@ authors = ["bal7hazar@proton.me"]
 [workspace.dependencies]
 # cubit = { git = "https://github.com/influenceth/cubit.git" }
 cubit = { git = "https://github.com/notV4l/cubit.git", rev = "5aa99005" }
-dojo = { git = "https://github.com/dojoengine/dojo", tag = "v0.6.0-alpha.3" }
+dojo = { git = "https://github.com/dojoengine/dojo", tag = "v0.6.0-alpha.8" }
 origami = { path = "crates" }
 token = { path = "token" }
