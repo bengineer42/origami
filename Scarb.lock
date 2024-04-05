@@ -45,7 +45,7 @@ dependencies = [
 
 [[package]]
 name = "origami"
-version = "0.6.0-alpha.3"
+version = "0.6.0-alpha.8"
 dependencies = [
  "cubit",
  "dojo",
