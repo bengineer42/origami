@@ -9,7 +9,7 @@ authors = ["bal7hazar@proton.me"]
 
 [workspace.dependencies]
 # cubit = { git = "https://github.com/ben-jay-amin/cubit.git", branch = "cairo-2.5.4" }
-cubit = { git = "https://github.com/ben-jay-amin/cubit.git" }
+cubit = { git = "https://github.com/ben-jay-amin/cubit" }
 dojo = { git = "https://github.com/dojoengine/dojo", tag = "v0.6.0" }
 origami = { path = "crates" }
 token = { path = "token" }
